@@ -26,7 +26,7 @@ class Paciente
     function create()
     {
         //
-        $sql = "INSERT INTO " . $this->table_name . " SET firstname = ?, lastname = ?, document_type = ?, document_number = ?, tratamiento_id = ?, city = ?, , address_p = ?, mobile = ?";
+        $sql = "INSERT INTO " . $this->table_name . " SET firstname = ?, lastname = ?, document_type = ?, document_number = ?, tratamiento_id = ?, city = ?,  address_p = ?, mobile = ?";
 
         $prep_state = $this->db_conn->prepare($sql);
 
@@ -103,7 +103,7 @@ class Paciente
 
     function getAllUsers($from_record_num, $records_per_page)
     {
-        $sql = "SELECT id, firstname, lastname, document_type, document_number,  tratamiento_id, city,  address_p, mobile, FROM " . $this->table_name . " ORDER BY firstname ASC LIMIT ?, ?";
+        $sql = "SELECT id, firstname, lastname, document_type, document_number,  tratamiento_id, city,  address_p, mobile FROM " . $this->table_name . " ORDER BY firstname ASC LIMIT ?, ?";
 
 
         $prep_state = $this->db_conn->prepare($sql);
@@ -132,11 +132,11 @@ class Paciente
 
         $this->firstname = $row['firstname'];
         $this->lastname = $row['lastname'];
-        $this->email = $row['document_type'];
-        $this->mobile = $row['document_number'];
-        $this->category_id = $row['tratamiento_id'];
-        $this->email = $row['city'];
-        $this->category_id = $row['address_p'];
+        $this->document_type = $row['document_type'];
+        $this->document_number = $row['document_number'];
+        $this->tratamiento_id = $row['tratamiento_id'];
+        $this->city = $row['city'];
+        $this->address_p = $row['address_p'];
         $this->mobile = $row['mobile'];
         
     }
